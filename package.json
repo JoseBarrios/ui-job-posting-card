@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/yarn/bin/yarn upgrade; ./node_modules/webpack/bin/webpack.js",
-    "test": "./node_modules/mocha/bin/mocha tests/"
+    "test": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --allow-file-access-from-files &> /dev/null &"
   },
   "repository": {
     "type": "git",

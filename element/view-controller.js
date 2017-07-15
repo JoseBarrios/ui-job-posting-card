@@ -8,7 +8,6 @@ class JobPostingCardViewController extends HTMLElement{
     const template = currentDocument.querySelector('#view').content.cloneNode(true);
     this.appendChild(template);
     this.dataController = new JobPosting();
-    console.log("It's alive:", this.dataController)
   }
 
   ///STANDARD
