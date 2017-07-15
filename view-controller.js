@@ -1,7 +1,11 @@
 'use strict'
 
-const lodashURL = 'lodash/lodash.js';
-const dataControllerURL = '@josebarrios/thing/index.js';
+//WORKS FOR PARENT PROJECT, NOT HERE
+//const lodashURL = 'lodash/lodash.js';
+//const dataControllerURL = '@josebarrios/thing/index.js';
+
+const lodashURL = '../node_modules/lodash/lodash.js';
+const dataControllerURL = '../node_modules/@josebarrios/thing/index.js';
 
 let currentDocument = document.currentScript.ownerDocument;
 
