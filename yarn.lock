@@ -2,19 +2,7 @@
 # yarn lockfile v1
 
 
-"@josebarrios/intangible@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/@josebarrios/intangible/-/intangible-0.1.2.tgz#1c8f9f726fd39bc72b4796e76dceefa1b70af92e"
-  dependencies:
-    "@josebarrios/thing" "^0.3.19"
-
-"@josebarrios/job-posting@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/@josebarrios/job-posting/-/job-posting-0.2.0.tgz#758b88cbe06b46990d2f7d0296befd893fce39fb"
-  dependencies:
-    "@josebarrios/intangible" "^0.1.2"
-
-"@josebarrios/thing@^0.3.19", "@josebarrios/thing@^0.3.32":
+"@josebarrios/thing@^0.3.32":
   version "0.3.32"
   resolved "https://registry.npmjs.org/@josebarrios/thing/-/thing-0.3.32.tgz#663f987ac24affdc45f8f2ba02da61635b1779bb"
   dependencies:
