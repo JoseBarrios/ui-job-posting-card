@@ -1,6 +1,6 @@
 'use strict'
 
-const lodashURL = 'node_modules/lodash/lodash.js';
+const lodashURL = 'lodash/lodash.js';
 const dataControllerURL = '@josebarrios/thing/index.js';
 
 let currentDocument = document.currentScript.ownerDocument;
