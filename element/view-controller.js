@@ -14,6 +14,7 @@ class JobPostingCardViewController extends HTMLElement{
     this.summaryContainer = this.querySelector('#summaryContainer');
     this.actionsContainer = this.querySelector('#actionsContainer');
     this.viewPostButton = this.querySelector('#viewPost');
+    this.hiringOrganization = this.querySelector('#hiringOrganization')
     this.expanded = false;
 
     this.test = this.querySelector('#test');
@@ -44,7 +45,10 @@ class JobPostingCardViewController extends HTMLElement{
 		this.expanded = true;
     this.card.style.maxHeight = "999px";
     this.card.style.backgroundColor = "white";
+    //this.card.style.backgroundColor = "#eff3f7";
+    this.card.style.borderColor ="#37a0e1";
     this.centerVerticallyOnScreen();
+    this.hiringOrganization.style.color = "#7f807f";
 
     let initOpacity = 0;
     let displaySummary = (timestamp) => {
@@ -68,18 +72,13 @@ class JobPostingCardViewController extends HTMLElement{
     let targetY = absoluteElementTop - (window.innerHeight / 4);
     targetY = parseInt(targetY)
 
-    let steps = Math.ceil(Math.abs(window.pageYOffset - targetY)/100);
-
+    let steps = Math.abs(targetY - window.pageYOffset)/100;
+    let current = 0;
     function scroll(timestamp){
       let minRange = targetY - 50;
-      let maxRange = targetY + 50;
-      if(window.pageYOffset > maxRange) {
-        let next = window.pageYOffset - steps;
-        window.scrollTo(0, next);
-        window.requestAnimationFrame(scroll);
-      }
-      if(window.pageYOffset < minRange) {
+      if(window.pageYOffset < minRange && current <= window.pageYOffset) {
         let next = window.pageYOffset + steps;
+        current = next;
         window.scrollTo(0, next);
         window.requestAnimationFrame(scroll);
       }

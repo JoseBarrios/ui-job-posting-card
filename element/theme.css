@@ -6,8 +6,8 @@ p {
 
 #card {
   transition: 0.8s;
-  border-radius: 5px; /* 5px rounded corners */
-  padding: 10px 20px 10px 20px;
+  border-radius: 6px; /* 5px rounded corners */
+  padding: 0px;
   margin: 20px;
 
   border-style: solid;
@@ -19,6 +19,8 @@ p {
 
 /* Add some padding inside the card container */
 #container {
+  padding-right: 20px;
+  padding-left: 20px;
   transition: 0.8s;
   display: flex;
   flex-direction: row;
@@ -98,6 +100,8 @@ p {
 
 #summaryContainer {
   padding:0px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin:0px;
   display: flex;
   flex-direction: column;
@@ -131,17 +135,19 @@ p {
 #requirementsList {
   padding:0px;
   margin:0px;
+  padding-bottom: 20px;
 }
 
 
 #actionsContainer {
   transition: 0.8s;
-  margin-top:30px;
+  margin-top:20px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   opacity:0;
   display:none;
+  padding:0px;
 
 }
 
@@ -149,12 +155,10 @@ button:focus {
   outline: none;
 }
 
-
 button {
   background-color:transparent;
   border:0px;
-  height:48px;
-  width:88px;
+  height:66px;
   outline: none;
 }
 
@@ -163,28 +167,46 @@ button {
   flex-grow: 1;
   flex-shrink:1;
   align-self:flex-start;
+  color: #37a0e1;
+  background-color: #ffffff;
+  border-radius:0px 0px 0px 5px;
+  border-top: 2px solid #37a0e1;
+  /*border-right: 1px solid #37a0e1;*/
 }
 
 #commentButton {
   order: 2;
   flex-grow: 1;
   flex-shrink:1;
+  color: #37a0e1;
+  background-color: #ffffff;
+  border-radius:0px 0px 5px 0px;
+  border-top: 2px solid #37a0e1;
+  /*border-right: 1px solid #37a0e1;*/
 }
 
 #shareButton {
   order: 3;
   flex-grow: 1;
   flex-shrink:1;
+  color: #37a0e1;
+  border-radius:0px 0px 0px 0px;
+  border-top: 2px solid #37a0e1;
+  /*border-right: 1px solid #37a0e1;*/
+  background-color: #ffffff;
 }
 
 #viewPost {
   order: 4;
   flex-grow: 2;
   flex-shrink:2;
-  border:solid 1px white;
-  color:#e78880;
-  font-size: 0.8em;
-  font-weight: bold;
+  color: #44bbf7;
+  font-size:0.9em;
+  background-color: #ffffff;
+  border-radius:0px 0px 9px 0px;
+  border-top: 2px solid #37a0e1;
+  /*border:solid 1px #37a0e1;*/
+  /*color:#e78880;*/
 }
 
 
