@@ -47,6 +47,7 @@ class JobPostingCardViewController extends HTMLElement{
     this.card.style.backgroundColor = "white";
     //this.card.style.backgroundColor = "#eff3f7";
     this.card.style.borderColor ="#37a0e1";
+    //this.card.style.borderColor ="#89c2ba";
     this.centerVerticallyOnScreen();
     this.hiringOrganization.style.color = "#7f807f";
 
