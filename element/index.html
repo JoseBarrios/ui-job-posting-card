@@ -1,7 +1,49 @@
 <link rel="stylesheet" type="text/css" href="theme.css">
 
 <template id="view">
-  <label> JOB POSTING CARD </label>
+  <!--<p id="test">ONLINE</p>-->
+  <div id="card">
+
+    <div id="container">
+      <div id="position">
+        <p id="employmentType">Fulltime</p>
+        <p id="title">Front-End Developer<p>
+        <p id="hiringOrganization">Google Inc</p>
+      </div> <!-- POSITION -->
+      <div id="info">
+        <div id="datePostedContainer">
+          <p id="datePosted">3 days ago</p>
+        </div> <!-- Date Posted Container -->
+        <p id="jobLocation">San Francisco</p>
+      </div> <!-- ASL -->
+    </div> <!--/CONTAINER-->
+
+    <div id="summaryContainer">
+
+      <p id="summaryLeftColumn">
+        <p id="summaryTitle"> Summary </p>
+          one two three four five six seven eight nine ten. one two three four five six seven eight nine ten.  one two three four five six seven eight nine ten.
+          one two three four five six seven eight nine ten. one two three four five six seven eight nine ten.
+      </p>
+
+      <div id="requirements">
+        <p id="requirementsTitle"> Requirements </p>
+        <ol id="requirementsList">
+          <ul>- Some requirement goes here</ul>
+          <ul>- Some requirement goes here</ul>
+          <ul>- Some requirement goes here</ul>
+        </ol>
+      </div>
+    </div>
+
+    <div id="actionsContainer">
+      <button id="likeButton">Like</button>
+      <button id="shareButton">Share</button>
+      <!--<button id="commentButton">Comment</button>-->
+      <button id="viewPost"> < VIEW JOB POST > </button>
+    </div>
+
+  </div> <!-- CARD -->
 </template>
 
 <script type="text/javascript" src="data-controller.js"> </script>
