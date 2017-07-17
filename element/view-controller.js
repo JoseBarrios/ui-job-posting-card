@@ -16,6 +16,7 @@ class JobPostingCardViewController extends HTMLElement{
     this.viewPostButton = this.querySelector('#viewPost');
     this.hiringOrganization = this.querySelector('#hiringOrganization')
     this.expanded = false;
+    this.listening = false;
 
     this.test = this.querySelector('#test');
 
@@ -25,16 +26,19 @@ class JobPostingCardViewController extends HTMLElement{
         this.card.removeEventListener('click', this.expandPreview)
         this.container.removeEventListener('click', this.expandPreview)
         this.summaryContainer.removeEventListener('click', this.expandPreview)
+        this.listening = false;
       }
       if(this.isInViewPort() === false){
         this.card.removeEventListener('click', this.expandPreview)
         this.container.removeEventListener('click', this.expandPreview)
         this.summaryContainer.removeEventListener('click', this.expandPreview)
+        this.listening = false;
       }
-      if(this.isInViewPort() && this.expanded === false){
+      if(this.isInViewPort() && this.expanded === false && this.listening === false){
         this.card.addEventListener('click', e => { this.expandPreview(e) })
         this.container.addEventListener('click', e => { this.expandPreview(e) })
         this.summaryContainer.addEventListener('click', e => { this.expandPreview(e) })
+        this.listening = true;
       }
     }, 500)
 
@@ -46,8 +50,8 @@ class JobPostingCardViewController extends HTMLElement{
     this.card.style.maxHeight = "999px";
     this.card.style.backgroundColor = "white";
     //this.card.style.backgroundColor = "#eff3f7";
-    this.card.style.borderColor ="#37a0e1";
-    //this.card.style.borderColor ="#89c2ba";
+    //this.card.style.borderColor ="#37a0e1";
+    //this.card.style.borderColor ="#e78880";
     this.centerVerticallyOnScreen();
     this.hiringOrganization.style.color = "#7f807f";
 

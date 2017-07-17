@@ -6,7 +6,7 @@ p {
 
 #card {
   transition: 0.8s;
-  border-radius: 6px; /* 5px rounded corners */
+  border-radius: 5px; /* 5px rounded corners */
   padding: 0px;
   margin: 20px;
 
@@ -135,7 +135,7 @@ p {
 #requirementsList {
   padding:0px;
   margin:0px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 
@@ -156,7 +156,8 @@ button:focus {
 }
 
 button {
-  background-color:transparent;
+  background-color: #ffffff;
+  color:#e78880;
   border:0px;
   height:66px;
   outline: none;
@@ -164,48 +165,40 @@ button {
 
 #likeButton {
   order: 1;
-  flex-grow: 1;
+  flex-grow: 2;
   flex-shrink:1;
   align-self:flex-start;
-  color: #37a0e1;
-  background-color: #ffffff;
   border-radius:0px 0px 0px 5px;
-  border-top: 2px solid #37a0e1;
-  /*border-right: 1px solid #37a0e1;*/
+  border-top: 2px solid #e78880;
+  /*border-right: 1px solid #e78880;*/
 }
 
 #commentButton {
   order: 2;
   flex-grow: 1;
   flex-shrink:1;
-  color: #37a0e1;
-  background-color: #ffffff;
-  border-radius:0px 0px 5px 0px;
-  border-top: 2px solid #37a0e1;
-  /*border-right: 1px solid #37a0e1;*/
+  border-radius:0px 0px 0px 0px;
+  border-top: 2px solid #e78880;
+  /*border-right: 1px solid #e78880;*/
 }
 
 #shareButton {
   order: 3;
   flex-grow: 1;
   flex-shrink:1;
-  color: #37a0e1;
   border-radius:0px 0px 0px 0px;
-  border-top: 2px solid #37a0e1;
-  /*border-right: 1px solid #37a0e1;*/
-  background-color: #ffffff;
+  border-top: 2px solid #e78880;
+  /*border-right: 1px solid #e78880;*/
 }
 
 #viewPost {
   order: 4;
   flex-grow: 2;
   flex-shrink:2;
-  color: #44bbf7;
   font-size:0.9em;
-  background-color: #ffffff;
   border-radius:0px 0px 9px 0px;
-  border-top: 2px solid #37a0e1;
-  /*border:solid 1px #37a0e1;*/
+  border-top: 2px solid #e78880;
+  /*border:solid 1px #e78880;*/
   /*color:#e78880;*/
 }
 
