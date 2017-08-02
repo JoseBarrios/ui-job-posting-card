@@ -1,26 +1,36 @@
 'use strict'
-let currentDocument = document.currentScript.ownerDocument;
+const uiJobPostingCardDoc = document._currentScript || document.currentScript;
+const uiJobPostingCardView = uiJobPostingCardDoc.ownerDocument.querySelector('#ui-job-posting-card-view');
 
 class JobPostingCardViewController extends HTMLElement{
 
+	static get observedAttributes(){
+		return [];
+	}
+
   constructor(){
     super();
-    const view = currentDocument.querySelector('#view').content.cloneNode(true);
-    this.appendChild(view);
-
-    this.dataController = new JobPosting();
-    this.card = this.querySelector('#card')
-    this.container = this.querySelector('#container');
-    this.summaryContainer = this.querySelector('#summaryContainer');
-    this.actionsContainer = this.querySelector('#actionsContainer');
-    this.viewPostButton = this.querySelector('#viewPost');
-    this.hiringOrganization = this.querySelector('#hiringOrganization')
+    const view = uiJobPostingCardView.content.cloneNode(true);
+		this.shadowRoot = this.attachShadow({mode: 'open'});
+		this.shadowRoot.appendChild(view);
+		//set variables
+		this.dataController = new JobPosting();
     this.expanded = false;
     this.listening = false;
+  }
 
-    this.test = this.querySelector('#test');
+		///STANDARD
+	connectedCallback() {
+		//console.log('connected');
+    this.card = this.shadowRoot.querySelector('#card')
+    this.container = this.shadowRoot.querySelector('#container');
+    this.summaryContainer = this.shadowRoot.querySelector('#summaryContainer');
+    this.actionsContainer = this.shadowRoot.querySelector('#actionsContainer');
+    this.viewPostButton = this.shadowRoot.querySelector('#viewPost');
+    this.hiringOrganization = this.shadowRoot.querySelector('#hiringOrganization')
+    this.test = this.shadowRoot.querySelector('#test');
 
-    //TEMP
+		//TEMP
     let loop = setInterval(e=>{
       if(this.expanded) {
         this.card.removeEventListener('click', this.expandPreview)
@@ -41,9 +51,23 @@ class JobPostingCardViewController extends HTMLElement{
         this.listening = true;
       }
     }, 500)
+	}
 
+	disconnectedCallback() {
+		//console.log('disconnected');
+	}
 
-  }
+	attributeChangedCallback(attrName, oldVal, newVal) {
+		//console.log('attributeChanged');
+	}
+
+	adoptedCallback(){
+		//console.log('adoptedCallback');
+	}
+
+	get shadowRoot(){ return this._shadowRoot; }
+	set shadowRoot(value){ this._shadowRoot = value;}
+
 
   expandPreview(e){
 		this.expanded = true;
@@ -95,29 +119,11 @@ class JobPostingCardViewController extends HTMLElement{
 		let el = this;
 		var rect = el.getBoundingClientRect();
     let cardHeight = 80;
-
     let top = rect.top >= 0;
     let left = rect.left >=0;
     let bottom = rect.bottom <= (window.innerHeight + cardHeight || document.documentElement.clientHeight)
     let right = rect.right <= (window.innerWidth || document.documentElement.clientWidth)
 		return top && left && bottom && right;
-	}
-
-	///STANDARD
-	connectedCallback() {
-		//console.log('connected');
-	}
-
-	disconnectedCallback() {
-		//console.log('disconnected');
-	}
-
-	attributeChangedCallback(attrName, oldVal, newVal) {
-		//console.log('attributeChanged');
-	}
-
-	adoptedCallback(){
-		//console.log('adoptedCallback');
 	}
 }
 
