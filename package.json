@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/JoseBarrios/ui-job-posting-card#readme",
   "devDependencies": {
+    "@josebarrios/ui-job-posting": "^0.1.42",
     "http-server": "^0.10.0",
     "mocha": "^3.4.2",
     "webpack": "^3.3.0",
