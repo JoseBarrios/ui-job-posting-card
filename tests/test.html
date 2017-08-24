@@ -32,31 +32,60 @@
     }
 
 		.header{
-			width:100%;
-			height:10vh;
+			height:6vh;
 			background-color:#fa5c74;
 			border-bottom:1px solid gray;
+			display: table-cell;
+			vertical-align: middle;
+			width:100vw;
+		}
+
+		.search-bar {
+			width:50%;
+			margin-left:25%;
+			padding:0.5em;
+			background-color:rgba(0,0,0, 0.2);
+			border:0px solid transparent;
+			font-size:1.2em;
+			color:white;
+			outline: none;
+		}
+		.search-bar::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  color: #f193a1;
+		}
+		.search-bar::-moz-placeholder { /* Firefox 19+ */
+		  color: #f193a1;
+		}
+		.search-bar:-ms-input-placeholder { /* IE 10+ */
+		  color: #f193a1;
+		}
+		.search-bar:-moz-placeholder { /* Firefox 18- */
+		  color: #f193a1;
 		}
 
   </style>
 
 
 <body>
-	<div class="header"> </div>
+	<div class="header">
+		<input class="search-bar" placeholder="Search" type="text">
+	</div>
 
   <div class="left-pannel">
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
-    <ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"California", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
   </div>
   <div class="right-pannel">
 		<div class="job-posting-container">
@@ -64,3 +93,21 @@
 		</div>
   </div>
 </body>
+<script>
+let card = document.querySelector('ui-job-posting-card');
+
+card.addEventListener('updated', function(e){
+	console.log('UPDATED:', e.detail)
+})
+
+card.addEventListener('expanded', function(e){
+	console.log('EXPANDED:', e.detail)
+})
+
+card.addEventListener('show-job-posting', function(e){
+	console.log('SHOW JOB POSTING:', e.detail)
+})
+
+
+card.value = {"hiringOrganization":{"name":"Cognilab"}, "title":"CEO", "datePosted":"Last night", "jobLocation":{"addressRegion":"Victoria", "addressLocality":"BC"}, "employmentType":"Full-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+</script>
