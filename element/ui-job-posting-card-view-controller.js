@@ -122,6 +122,42 @@ class JobPostingCardViewController extends HTMLElement{
 		}
 	}
 
+	get employmentType(){ return this.model.employmentType; }
+	set employmentType(value){
+		this.model.employmentType = value;
+		this.value = this.model;
+	}
+
+	get title(){ return this.model.title; }
+	set title(value){
+		this.model.title = value;
+		this.value = this.model;
+	}
+
+	get hiringOrganization(){ return this.model.hiringOrganization; }
+	set hiringOrganization(value){
+		this.model.hiringOrganization = value;
+		this.value = this.model;
+	}
+
+	get datePosted(){ return this.model.datePosted; }
+	set datePosted(value){
+		this.model.datePosted = value;
+		this.value = this.model;
+	}
+
+	get jobLocation(){ return this.model.jobLocation; }
+	set jobLocation(value){
+		this.model.jobLocation = value;
+		this.value = this.model;
+	}
+
+	get description(){ return this.model.description; }
+	set description(value){
+		this.model.description = value;
+		this.value = this.model;
+	}
+
 	error(msg){
 		this.hidden = true;
 		console.error('ERROR: '+msg+', hidding')
@@ -132,11 +168,13 @@ class JobPostingCardViewController extends HTMLElement{
 		if(value && this.card){
 			this.card.style.maxHeight = "999px";
 			this.card.style.backgroundColor = "white";
+			this.card.style.cursor= "auto";
+			//this.centerVerticallyOnScreen();
 			//this.card.style.backgroundColor = "#eff3f7";
 			//this.card.style.borderColor ="#37a0e1";
 			//this.card.style.borderColor ="#e78880";
-			this.centerVerticallyOnScreen();
-			this.$hiringOrganizationName.style.color = "#7f807f";
+			//this.$hiringOrganizationName.style.color = "#7f807f";
+			//this.$hiringOrganizationName.style.color = "#c64d5f";
 
 			let initOpacity = 0;
 			let displaySummary = (timestamp) => {
