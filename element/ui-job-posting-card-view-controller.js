@@ -16,6 +16,9 @@ class JobPostingCardViewController extends HTMLElement{
 
 		//set variables
 		this.model = new JobPosting();
+		this.model.jobLocation = new PostalAddress();
+		this.model.hiringOrganization = new Organization();
+
     this.expanded = false;
     this.listening = false;
   }
@@ -113,12 +116,12 @@ class JobPostingCardViewController extends HTMLElement{
 		this._updatedEvent();
 
 		if(this.connected){
-			this.$employmentType.innerText = this.model.employmentType || '';
-			this.$title.innerText = this.model.title || '';
-			this.$hiringOrganizationName.innerText = this.model.hiringOrganization.name || this.error('hiringOrganization property not set');
-			this.$datePosted.innerText = this.model.datePosted || this.error('datePosted property not set');
-			this.$jobLocation.innerText = this.model.jobLocation.addressLocality + ', '+ this.model.jobLocation.addressRegion || '';
-			this.$description.innerText = this.model.description || '';
+			this.$employmentType.innerText = this.model.employmentType || 'Employment Type';
+			this.$title.innerText = this.model.title || 'Title';
+			this.$hiringOrganizationName.innerText = this.model.hiringOrganization.name || 'Hiring Organization';
+			this.$datePosted.innerText = this.model.datePosted || 'Date Posted';
+			this.$jobLocation.innerText = this.model.jobLocation.addressLocality + ', '+ this.model.jobLocation.addressRegion || 'Job Location';
+			this.$description.innerText = this.model.description || 'Description';
 		}
 	}
 

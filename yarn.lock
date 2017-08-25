@@ -44,6 +44,19 @@
   dependencies:
     lodash "^4.17.4"
 
+"@josebarrios/ui-image-input@^0.1.4":
+  version "0.1.7"
+  resolved "https://registry.npmjs.org/@josebarrios/ui-image-input/-/ui-image-input-0.1.7.tgz#6542ce6282cc23c58b525d8b1b14c358f3ba9489"
+
+"@josebarrios/ui-job-posting-form@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmjs.org/@josebarrios/ui-job-posting-form/-/ui-job-posting-form-0.1.6.tgz#e8b24c08e3d263dfe9c339c3634fd697e60df19a"
+  dependencies:
+    "@josebarrios/job-posting" "^0.2.0"
+    "@josebarrios/organization" "^1.1.7"
+    "@josebarrios/postal-address" "^0.1.7"
+    "@josebarrios/ui-image-input" "^0.1.4"
+
 "@josebarrios/ui-job-posting@^0.1.42":
   version "0.1.43"
   resolved "https://registry.npmjs.org/@josebarrios/ui-job-posting/-/ui-job-posting-0.1.43.tgz#b3a602e01a09f85b01a314f2baaa40b637754b2c"

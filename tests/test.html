@@ -1,6 +1,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.1/webcomponents-lite.js'></script>
 <link rel='import', href='../element/index.html'>
 <link rel='import', href='../node_modules/@josebarrios/ui-job-posting/element/index.html'>
+<link rel='import', href='../node_modules/@josebarrios/ui-job-posting-form/element/index.html'>
 
   <style>
     body {
@@ -49,6 +50,7 @@
 			font-size:1.2em;
 			color:white;
 			outline: none;
+			height:100%;
 		}
 		.search-bar::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 		  color: #f193a1;
@@ -72,11 +74,27 @@
 	</div>
 
   <div class="left-pannel">
-		<ui-job-posting-card value='{"hiringOrganization":{"name":"BeVisible"}, "title":"CTO", "datePosted":"Today", "jobLocation":{"addressRegion":"CA", "addressLocality":"San Francisco"}, "employmentType":"Part-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}' expanded="false" ></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card></ui-job-posting-card>
   </div>
   <div class="right-pannel">
 		<div class="job-posting-container">
-    	<ui-job-posting></ui-job-posting>
+      <!--<ui-job-posting></ui-job-posting>-->
+    	<ui-job-posting-form></ui-job-posting-form>
 		</div>
   </div>
 </body>
@@ -94,7 +112,7 @@ address.addressRegion = 'UPDATED'
 address.addressLocality = 'UPDATED'
 card.jobLocation = address;
 card.description = 'UPDATED';
-card.expanded = true;
+//card.expanded = true;
 
 card.value = {"hiringOrganization":{"name":"Cognilab"}, "title":"CEO", "datePosted":"Last night", "jobLocation":{"addressRegion":"Victoria", "addressLocality":"BC"}, "employmentType":"Full-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
 
