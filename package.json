@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/yarn/bin/yarn upgrade; ./node_modules/webpack/bin/webpack.js",
-    "test": "./node_modules/http-server/bin/http-server"
+    "test": "npm build; ./node_modules/http-server/bin/http-server"
   },
   "repository": {
     "type": "git",
