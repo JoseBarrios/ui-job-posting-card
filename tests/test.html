@@ -6,7 +6,7 @@
 
   <style>
     body {
-      background-color:#e6e6e6;
+      background-color:#e8ebf2;
       width:100%;
       padding:0px;
       margin:0px;
@@ -122,20 +122,20 @@ let jobPosting = new JobPosting();
 jobPosting.skills = ['skills', 'one'];
 console.log(jobPosting)
 
-card.employmentType = 'UPDATED';
-card.title = 'UPDATED';
+card.employmentType = 'FULL-TIME';
+card.title = 'VERY LONG JOB TITLE FOR THIS ONE';
 let org = new Organization();
-org.name = 'UPDATED'
+org.name = 'HIRING ORGANIZATION NAME'
 card.hiringOrganization = org;
-card.datePosted = 'UPDATED';
+card.datePosted = 'DATE POSTED';
 let address = new PostalAddress();
-address.addressRegion = 'UPDATED'
-address.addressLocality = 'UPDATED'
+address.addressRegion = 'ADDRESS-REGION'
+address.addressLocality = 'ADDRESS-LOCALITY'
 card.jobLocation = address;
-card.description = 'UPDATED';
+card.description = 'DESCRIPTION';
 //card.expanded = true;
 
-card.value = {"hiringOrganization":{"name":"Cognilab"}, "title":"CEO", "datePosted":"Last night", "jobLocation":{"addressRegion":"Victoria", "addressLocality":"BC"}, "employmentType":"Full-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+//card.value = {"hiringOrganization":{"name":"Cognilab"}, "title":"CEO", "datePosted":"Last night", "jobLocation":{"addressRegion":"Victoria", "addressLocality":"BC"}, "employmentType":"Full-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
 
 card.addEventListener('updated', function(e){
 	console.log('UPDATED:', e.detail)

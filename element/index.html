@@ -4,27 +4,26 @@
 			font-family: Arial, Helvetica, sans-serif;
 			padding:0px;
 			margin:0px;
+
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		#card {
 			cursor:pointer;
-			transition: 0.8s;
-			border-radius: 5px; /* 5px rounded corners */
-			padding: 0px;
-			margin: 20px;
-
-			border-style: solid;
-			border-width: 2px;
-			border-color:lightGray;//#e78880;
+			padding: 10px;
+			padding-right: 20px;
+			border-bottom: 1px solid #e1e1e1;
+			background-color:#fafafa;
 			background-color:white;
-			max-height:80px;
 		}
 
 		/* Add some padding inside the card container */
 		#container {
-			padding-right: 20px;
-			padding-left: 20px;
-			transition: 0.8s;
+			//padding-right: 20px;
+			//padding-left: 20px;
+			//transition: 0.8s;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: nowrap;
@@ -48,6 +47,9 @@
 		#title {
 			font-weight: bold;
 			font-size:1.2em;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		#hiringOrganizationName {
@@ -67,7 +69,7 @@
 		}
 
 		#datePostedContainer {
-			transition: 0.8s;
+			//transition: 0.8s;
 			position:relative;
 			order:1;
 			flex-grow: 1;
@@ -79,6 +81,10 @@
 			font-size:0.5em;
 			bottom:0;
 			right:0;
+
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		#jobLocation {
@@ -88,6 +94,10 @@
 			align-self:flex-end;
 			text-align:right;
 			font-size:0.5em;
+
+			white-space: normal!important;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		#summaryTitle {
@@ -109,7 +119,7 @@
 			margin:0px;
 			display: flex;
 			flex-direction: column;
-			transition: 0.8s;
+			//transition: 0.8s;
 			flex-wrap: nowrap;
 			justify-content:space-between;
 
@@ -144,7 +154,7 @@
 		}
 
 		#actionsContainer {
-			transition: 0.8s;
+			//transition: 0.8s;
 			margin-top:20px;
 			display: flex;
 			flex-direction: row;
@@ -160,7 +170,7 @@
 		}
 
 		button {
-			background-color: #ffffff;
+			background-color: #fafafa;
 			color:#e78880;
 			border:0px;
 			height:66px;
@@ -208,23 +218,95 @@
 			/*border:solid 1px #e78880;*/
 			/*color:#e78880;*/
 		}
+
+
+
+		* {
+			box-sizing: border-box;
+		}
+
+		[class*="col-"] {
+			float: left;
+			//padding: 10px;
+			//border: 1px solid red;
+		}
+
+		.row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
+		[class*="col-"] {
+			width: 100%;
+		}
+
+		@media only screen and (min-width: 0px) {
+			.col-sm-0 {width: 0%; 			height:0px;		opacity:0;}
+			.col-sm-1 {width: 8.33%; 		height:auto; 	opacity:1;}
+			.col-sm-2 {width: 16.66%; 	height:auto; 	opacity:1;}
+			.col-sm-3 {width: 25%; 			height:auto; 	opacity:1;}
+			.col-sm-4 {width: 33.33%;		height:auto;	opacity:1;}
+			.col-sm-5 {width: 41.66%; 	height:auto; 	opacity:1;}
+			.col-sm-6 {width: 50%; 			height:auto; 	opacity:1;}
+			.col-sm-7 {width: 58.33%;		height:auto; 	opacity:1;}
+			.col-sm-8 {width: 66.66%; 	height:auto; 	opacity:1;}
+			.col-sm-9 {width: 75%; 			height:auto; 	opacity:1;}
+			.col-sm-10 {width: 83.33%; 	height:auto; 	opacity:1;}
+			.col-sm-11 {width: 91.66%; 	height:auto; 	opacity:1;}
+			.col-sm-12 {width: 100%; 		height:auto; 	opacity:1;}
+		}
+
+		@media only screen and (min-width: 600px) {
+			.col-md-0 {width: 0%; 			height:0px;		opacity:0;}
+			.col-md-1 {width: 8.33%; 		height:auto; 	opacity:1;}
+			.col-md-2 {width: 16.66%; 	height:auto; 	opacity:1;}
+			.col-md-3 {width: 25%; 			height:auto; 	opacity:1;}
+			.col-md-4 {width: 33.33%;		height:auto;	opacity:1;}
+			.col-md-5 {width: 41.66%; 	height:auto; 	opacity:1;}
+			.col-md-6 {width: 50%; 			height:auto; 	opacity:1;}
+			.col-md-7 {width: 58.33%;		height:auto; 	opacity:1;}
+			.col-md-8 {width: 66.66%; 	height:auto; 	opacity:1;}
+			.col-md-9 {width: 75%; 			height:auto; 	opacity:1;}
+			.col-md-10 {width: 83.33%; 	height:auto; 	opacity:1;}
+			.col-md-11 {width: 91.66%; 	height:auto; 	opacity:1;}
+			.col-md-12 {width: 100%; 		height:auto; 	opacity:1;}
+		}
+
+		@media only screen and (min-width: 768px) {
+			.col-lg-0 {width: 0%; 			height:0px;		opacity:0;}
+			.col-lg-1 {width: 8.33%; 		height:auto; 	opacity:1;}
+			.col-lg-2 {width: 16.66%; 	height:auto; 	opacity:1;}
+			.col-lg-3 {width: 25%; 			height:auto; 	opacity:1;}
+			.col-lg-4 {width: 33.33%;		height:auto;	opacity:1;}
+			.col-lg-5 {width: 41.66%; 	height:auto; 	opacity:1;}
+			.col-lg-6 {width: 50%; 			height:auto; 	opacity:1;}
+			.col-lg-7 {width: 58.33%;		height:auto; 	opacity:1;}
+			.col-lg-8 {width: 66.66%; 	height:auto; 	opacity:1;}
+			.col-lg-9 {width: 75%; 			height:auto; 	opacity:1;}
+			.col-lg-10 {width: 83.33%; 	height:auto; 	opacity:1;}
+			.col-lg-11 {width: 91.66%; 	height:auto; 	opacity:1;}
+			.col-lg-12 {width: 100%; 		height:auto; 	opacity:1;}
+		}
+
 	</style>
 
-	<div id="card">
+	<div id="card" class="col-lg-12 col-md-12 col-sm-12">
 
-		<div id="container">
-			<div id="position">
-				<p id="employmentType">Fulltime</p>
-				<p id="title">Front-End Developer</p>
-				<p id="hiringOrganizationName">Google Inc</p>
+		<div id="container" class="col-lg-12 col-md-12 col-sm-12">
+			<div id="position" class="col-lg-9 col-md-9 col-sm-9">
+				<p id="employmentType" class="col-lg-12 col-md-12 col-sm-12">Fulltime</p>
+				<p id="title" class="col-lg-12 col-md-12 col-sm-12">Front-End Developer</p>
+				<p id="hiringOrganizationName" class="col-lg-12 col-md-12 col-sm-12">Google Inc</p>
 			</div> <!-- POSITION -->
-			<div id="info">
-				<div id="datePostedContainer">
+			<div id="info" class="col-lg-3 col-md-3 col-sm-3">
+				<div id="datePostedContainer" class="col-lg-12 col-md-12 col-sm-12">
 					<p id="datePosted">3 days ago</p>
 				</div> <!-- Date Posted Container -->
-				<p id="jobLocation">San Francisco</p>
+				<p id="jobLocation" class="col-lg-12 col-md-12 col-sm-12">San Francisco</p>
 			</div> <!-- ASL -->
 		</div> <!--/CONTAINER-->
+
 
 		<div id="summaryContainer">
 

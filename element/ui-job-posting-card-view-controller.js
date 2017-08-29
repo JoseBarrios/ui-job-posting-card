@@ -170,10 +170,12 @@ class JobPostingCardViewController extends HTMLElement{
 	set expanded(value){
 		if(value && this.card){
 			this.card.style.maxHeight = "999px";
-			this.card.style.backgroundColor = "white";
+			//this.card.style.backgroundColor = "white";
 			this.card.style.cursor= "auto";
 			//this.centerVerticallyOnScreen();
-			//this.card.style.backgroundColor = "#eff3f7";
+			this.card.style.backgroundColor = "#eeeeee";
+			this.card.style.backgroundColor = "#fafafa";
+
 			//this.card.style.borderColor ="#37a0e1";
 			//this.card.style.borderColor ="#e78880";
 			//this.$hiringOrganizationName.style.color = "#7f807f";
