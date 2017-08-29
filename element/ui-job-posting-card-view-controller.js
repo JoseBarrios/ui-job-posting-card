@@ -24,14 +24,9 @@ class JobPostingCardViewController extends HTMLElement{
 
 		///STANDARD
 	connectedCallback() {
+    this.element = this.shadowRoot.querySelector('#element')
     this.card = this.shadowRoot.querySelector('#card')
     this.container = this.shadowRoot.querySelector('#container');
-    this.summaryContainer = this.shadowRoot.querySelector('#summaryContainer');
-    this.actionsContainer = this.shadowRoot.querySelector('#actionsContainer');
-    this.viewPostButton = this.shadowRoot.querySelector('#viewPost');
-		this.viewPostButton.addEventListener('click', (e) => {
-			this._showJobPostingEvent();
-		});
 
 		this.$employmentType = this.shadowRoot.querySelector('#employmentType')
 		this.$title = this.shadowRoot.querySelector('#title')
@@ -45,8 +40,9 @@ class JobPostingCardViewController extends HTMLElement{
 			e.stopPropagation();
 			this.selected = true;
 		}
-		this.card.addEventListener('click', this.clicked)
-		this.container.addEventListener('click', this.clicked)
+		//this.card.addEventListener('click', this.clicked)
+		//this.container.addEventListener('click', this.clicked)
+		this.element.addEventListener('click', this.clicked)
 
 		this.connected = true;
 		this._updateRender();
