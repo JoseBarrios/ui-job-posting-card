@@ -234,7 +234,7 @@ expand(e){
 }
 
 _expandedEvent(){
-	this.dispatchEvent(new CustomEvent('expanded', {detail: this.expanded, bubbles:false}));
+	this.dispatchEvent(new CustomEvent('expanded', {detail: this.value, bubbles:false}));
 }
 
 _updatedEvent(){
