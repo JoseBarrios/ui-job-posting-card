@@ -91,9 +91,9 @@
 	</div>
 
   <div class="left-pannel">
-		<ui-job-posting-card></ui-job-posting-card>
-		<ui-job-posting-card></ui-job-posting-card>
-		<ui-job-posting-card></ui-job-posting-card>
+		<ui-job-posting-card selected="true"></ui-job-posting-card>
+		<ui-job-posting-card ></ui-job-posting-card>
+		<ui-job-posting-card selected="true"></ui-job-posting-card>
 		<ui-job-posting-card></ui-job-posting-card>
 		<ui-job-posting-card></ui-job-posting-card>
 		<ui-job-posting-card></ui-job-posting-card>
@@ -116,37 +116,52 @@
   </div>
 </body>
 <script>
-let card = document.querySelector('ui-job-posting-card');
+let cards = document.querySelectorAll('ui-job-posting-card');
 
-let jobPosting = new JobPosting();
-jobPosting.skills = ['skills', 'one'];
-console.log(jobPosting)
 
-card.employmentType = 'FULL-TIME';
-card.title = 'VERY LONG JOB TITLE FOR THIS ONE';
-let org = new Organization();
-org.name = 'HIRING ORGANIZATION NAME'
-card.hiringOrganization = org;
-card.datePosted = 'DATE POSTED';
-let address = new PostalAddress();
-address.addressRegion = 'ADDRESS-REGION'
-address.addressLocality = 'ADDRESS-LOCALITY'
-card.jobLocation = address;
-card.description = 'DESCRIPTION';
+let unselectAll = function(exception){
+	cards.forEach(card => {
+		if(card !== exception){
+			card.setAttribute('selected', 'false');
+		}
+	})
+}
+
+cards.forEach(card => {
+
+	card.addEventListener('selected', function(e){
+		unselectAll(e.target);
+	})
+
+})
+
+
+//card.addEventListener('updated', function(e){
+	//console.log('UPDATED:', e.detail)
+//})
+
+
+
+//card.addEventListener('show-job-posting', function(e){
+	//console.log('SHOW JOB POSTING:', e.detail)
+//})
+
+
+//let jobPosting = new JobPosting();
+//jobPosting.skills = ['skills', 'one'];
+//card.employmentType = 'FULL-TIME';
+//card.title = 'VERY LONG JOB TITLE FOR THIS ONE';
+//let org = new Organization();
+//org.name = 'HIRING ORGANIZATION NAME'
+//card.hiringOrganization = org;
+//card.datePosted = 'DATE POSTED';
+//let address = new PostalAddress();
+//address.addressRegion = 'ADDRESS-REGION'
+//address.addressLocality = 'ADDRESS-LOCALITY'
+//card.jobLocation = address;
+//card.description = 'DESCRIPTION BBLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH LAH BLAH';
 //card.expanded = true;
 
 //card.value = {"hiringOrganization":{"name":"Cognilab"}, "title":"CEO", "datePosted":"Last night", "jobLocation":{"addressRegion":"Victoria", "addressLocality":"BC"}, "employmentType":"Full-time", "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
-
-card.addEventListener('updated', function(e){
-	console.log('UPDATED:', e.detail)
-})
-
-card.addEventListener('expanded', function(e){
-	console.log('EXPANDED:', e.detail)
-})
-
-card.addEventListener('show-job-posting', function(e){
-	console.log('SHOW JOB POSTING:', e.detail)
-})
 
 </script>

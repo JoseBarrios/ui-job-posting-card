@@ -5,7 +5,7 @@ const uiJobPostingCardView = uiJobPostingCardDoc.ownerDocument.querySelector('#u
 class JobPostingCardViewController extends HTMLElement{
 
 	static get observedAttributes(){
-		return ['value', 'expanded'];
+		return ['value', 'selected'];
 	}
 
   constructor(){
@@ -13,19 +13,17 @@ class JobPostingCardViewController extends HTMLElement{
     const view = uiJobPostingCardView.content.cloneNode(true);
 		this.shadowRoot = this.attachShadow({mode: 'open'});
 		this.shadowRoot.appendChild(view);
-
 		//set variables
 		this.model = new JobPosting();
 		this.model.jobLocation = new PostalAddress();
 		this.model.hiringOrganization = new Organization();
-
-    this.expanded = false;
+		//set state
+    this.selected = false;
     this.listening = false;
   }
 
 		///STANDARD
 	connectedCallback() {
-		//console.log('connected');
     this.card = this.shadowRoot.querySelector('#card')
     this.container = this.shadowRoot.querySelector('#container');
     this.summaryContainer = this.shadowRoot.querySelector('#summaryContainer');
@@ -35,7 +33,6 @@ class JobPostingCardViewController extends HTMLElement{
 			this._showJobPostingEvent();
 		});
 
-
 		this.$employmentType = this.shadowRoot.querySelector('#employmentType')
 		this.$title = this.shadowRoot.querySelector('#title')
     this.$hiringOrganizationName = this.shadowRoot.querySelector('#hiringOrganizationName')
@@ -43,36 +40,20 @@ class JobPostingCardViewController extends HTMLElement{
     this.$jobLocation = this.shadowRoot.querySelector('#jobLocation')
     this.$description = this.shadowRoot.querySelector('#description')
 
+		this.clicked = (e) => {
+			e.preventDefault();
+			e.stopPropagation();
+			this.selected = true;
+		}
+		this.card.addEventListener('click', this.clicked)
+		this.container.addEventListener('click', this.clicked)
 
-    //let loop = setInterval(e=>{
-      //if(this.expanded) {
-				//console.log('REMOVE EVENT 1')
-        //this.card.removeEventListener('click', this.expand)
-        //this.container.removeEventListener('click', this.expand)
-        //this.summaryContainer.removeEventListener('click', this.expand)
-        //this.listening = false;
-      //}
-      //if(this.isInViewPort() === false){
-				//console.log('REMOVE EVENT 2')
-        //this.card.removeEventListener('click', this.expand)
-        //this.container.removeEventListener('click', this.expand)
-        //this.summaryContainer.removeEventListener('click', this.expand)
-        //this.listening = false;
-      //}
-      //if(this.isInViewPort() && this.expanded === false && this.listening === false){
-				//console.log('ADDING EVENT')
-        this.card.addEventListener('click', this.expand.bind(this))
-        this.container.addEventListener('click', this.expand.bind(this))
-        this.summaryContainer.addEventListener('click', this.expand.bind(this))
-        this.listening = true;
-      //}
-    //}, 500)
 		this.connected = true;
 		this._updateRender();
 	}
 
 	_updateRender(){
-		this.expanded = this.expanded;
+		this.selected = this.selected;
 		this.value = this.value;
 	}
 
@@ -86,9 +67,9 @@ class JobPostingCardViewController extends HTMLElement{
 				//Convert string to object, set
 				this.value = JSON.parse(newVal);
 				break;
-			case 'expanded':
+			case 'selected':
 				//Converts string to boolean, sets it
-				this.expanded = (newVal === "true");
+				this.selected = (newVal === "true");
 				break;
 			default:
 				console.warn(`Attribute ${attrName} not handled`)
@@ -161,6 +142,20 @@ class JobPostingCardViewController extends HTMLElement{
 		this.value = this.model;
 	}
 
+	get selected(){ return this._selected; }
+	set selected(value){
+		this._selected = value;
+		if(this.card && value === true){
+			this.card.style.backgroundColor = "#fafafa";
+			this._selectedEvent();
+		}
+		if(this.card && value === false){
+			this.card.style.backgroundColor = "#ffffff";
+			this._unselectedEvent();
+		}
+	}
+
+
 	error(msg){
 		this.hidden = true;
 		console.error('ERROR: '+msg+', hidding')
@@ -168,76 +163,70 @@ class JobPostingCardViewController extends HTMLElement{
 
 	get expanded(){ return this._expanded}
 	set expanded(value){
-		if(value && this.card){
-			this.card.style.maxHeight = "999px";
+		//if(value && this.card){
+		//this.card.style.maxHeight = "999px";
 			//this.card.style.backgroundColor = "white";
-			this.card.style.cursor= "auto";
+			//this.card.style.cursor= "auto";
 			//this.centerVerticallyOnScreen();
-			this.card.style.backgroundColor = "#eeeeee";
-			this.card.style.backgroundColor = "#fafafa";
+			//this.card.style.backgroundColor = "#eeeeee";
+			//this.card.style.backgroundColor = "#fafafa";
 
 			//this.card.style.borderColor ="#37a0e1";
 			//this.card.style.borderColor ="#e78880";
 			//this.$hiringOrganizationName.style.color = "#7f807f";
 			//this.$hiringOrganizationName.style.color = "#c64d5f";
 
-			let initOpacity = 0;
-			let displaySummary = (timestamp) => {
-				initOpacity = initOpacity + 0.1;
-				this.summaryContainer.style.opacity = `${initOpacity}`
-				this.actionsContainer.style.opacity = `${initOpacity}`
-				if(initOpacity < 1){
-					window.requestAnimationFrame(displaySummary)
-				}
-			}
-			window.requestAnimationFrame(displaySummary)
-			this.summaryContainer.style.height = "auto";
-			this.actionsContainer.style.height = "auto";
-			this.summaryContainer.style.display = "flex";
-			this.actionsContainer.style.display = "flex";
-		}
+			//this.summaryContainer.style.opacity = 1;
+			//this.actionsContainer.style.opacity = 1;
+			//this.summaryContainer.style.height = "auto";
+			//this.actionsContainer.style.height = "auto";
+			//this.summaryContainer.style.display = "flex";
+			//this.actionsContainer.style.display = "flex";
+		//}
 
 
 		//CLOSE
-		//else if(this.card){
-		/*     this.card.style.maxHeight = "80px";*/
-		//this.$hiringOrganizationName.style.color = "#a4625c";
-		//let initOpacity = 1;
-		//let displaySummary = (timestamp) => {
-		//initOpacity = initOpacity - 0.1;
-		//this.summaryContainer.style.opacity = `${initOpacity}`
-		//this.actionsContainer.style.opacity = `${initOpacity}`
-		//if(initOpacity > 0){
-		//window.requestAnimationFrame(displaySummary)
-		//} else if (initOpacity <= 0){
-		//let wait = setTimeout(() => {
-		//this.summaryContainer.style.display = "none";
-		//this.actionsContainer.style.display = "none";
-		//clearTimeout(wait);
-		//console.log('DONE');
-		//}, 900);
-		//}
-		//}
-		/*window.requestAnimationFrame(displaySummary)*/
+		//else if(value === false && this.card){
+			//this.card.style.maxHeight = "80px";
+			//this.summaryContainer.style.display = "none";
+			//this.actionsContainer.style.display = "none";
 		//}
 
-		if(!this._expanded){ this._expandedEvent(); }
-		this._expanded = value;
+		//if(!this._expanded){ this._expandedEvent(); }
+		//this._expanded = value;
 }
 
 
 //We use this because an event relays on this function
 //and for us to be able to delete the event listener, the function
 //cannot be annonimous
-expand(e){
-	e.preventDefault();
-	e.stopPropagation();
-	this.expanded = true;
+//toggle(e){
+	//e.preventDefault();
+	//e.stopPropagation();
+	//this.expanded = !this.expanded;
+//}
+
+//close(e){
+	//e.preventDefault();
+	//e.stopPropagation();
+	//this.expanded = false;
+//}
+
+//open(e){
+	//e.preventDefault();
+	//e.stopPropagation();
+	//this.expanded = true;
+//}
+
+
+_selectedEvent(){
+	this.dispatchEvent(new CustomEvent('selected', {detail: this.value, bubbles:false}));
 }
 
-_expandedEvent(){
-	this.dispatchEvent(new CustomEvent('expanded', {detail: this.value, bubbles:false}));
+_unselectedEvent(){
+	this.dispatchEvent(new CustomEvent('unselected', {detail: this.value, bubbles:false}));
 }
+
 
 _updatedEvent(){
 	this.dispatchEvent(new CustomEvent('updated', {detail: this.value, bubbles:false}));
