@@ -35,6 +35,15 @@ class JobPostingCardViewController extends HTMLElement{
     this.$jobLocation = this.shadowRoot.querySelector('#jobLocation')
     this.$description = this.shadowRoot.querySelector('#description')
 
+    this.$info = this.shadowRoot.querySelector('#info')
+    this.$buttons = this.shadowRoot.querySelector('#buttons')
+
+    this.$shareButtonLink = this.shadowRoot.querySelector('#shareButtonLink')
+		this.$shareButtonLink.setAttribute('url', this.model.url);
+    this.$shareButtonEmail = this.shadowRoot.querySelector('#shareButtonEmail')
+		this.$shareButtonEmail.setAttribute('url', this.model.url);
+
+
 		this.clicked = (e) => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -141,12 +150,19 @@ class JobPostingCardViewController extends HTMLElement{
 	get selected(){ return this._selected; }
 	set selected(value){
 		this._selected = value;
+
+		//SELECTED
 		if(this.card && value === true){
 			this.card.style.backgroundColor = "#fafafa";
+			this.$info.style.display = "none";
+			this.$buttons.style.display = "inline-block";
 			this._selectedEvent();
 		}
+		//UNSELECTED
 		if(this.card && value === false){
 			this.card.style.backgroundColor = "#ffffff";
+			this.$buttons.style.display = "none";
+			this.$info.style.display = "flex";
 			this._unselectedEvent();
 		}
 	}
