@@ -17,6 +17,7 @@ class JobPostingCardViewController extends HTMLElement{
 		this.model = new JobPosting();
 		this.model.jobLocation = new PostalAddress();
 		this.model.hiringOrganization = new Organization();
+
 		//set state
     this.selected = false;
     this.listening = false;
@@ -39,9 +40,7 @@ class JobPostingCardViewController extends HTMLElement{
     this.$buttons = this.shadowRoot.querySelector('#buttons')
 
     this.$shareButtonLink = this.shadowRoot.querySelector('#shareButtonLink')
-		this.$shareButtonLink.setAttribute('url', this.model.url);
     this.$shareButtonEmail = this.shadowRoot.querySelector('#shareButtonEmail')
-		this.$shareButtonEmail.setAttribute('url', this.model.url);
 
 
 		this.clicked = (e) => {
@@ -71,6 +70,7 @@ class JobPostingCardViewController extends HTMLElement{
 			case 'value':
 				//Convert string to object, set
 				this.value = JSON.parse(newVal);
+
 				break;
 			case 'selected':
 				//Converts string to boolean, sets it
@@ -93,6 +93,7 @@ class JobPostingCardViewController extends HTMLElement{
 		let value = JobPosting.assignedProperties(this.model)
 		value.jobLocation = PostalAddress.assignedProperties(this.model.jobLocation)
 		value.hiringOrganization = PostalAddress.assignedProperties(this.model.hiringOrganization)
+
 		return value;
 	}
 	set value(value){
@@ -100,6 +101,7 @@ class JobPostingCardViewController extends HTMLElement{
 		this.model.hiringOrganization = new Organization(value.hiringOrganization);
 		this.model.jobLocation = new PostalAddress(value.jobLocation);
 		this._updatedEvent();
+		console.log(this.model)
 
 		if(this.connected){
 			this.$employmentType.innerText = this.model.employmentType || 'Employment Type';
@@ -108,6 +110,9 @@ class JobPostingCardViewController extends HTMLElement{
 			this.$datePosted.innerText = this.model.datePosted || 'Date Posted';
 			this.$jobLocation.innerText = this.model.jobLocation.addressLocality + ', '+ this.model.jobLocation.addressRegion || 'Job Location';
 			this.$description.innerText = this.model.description || 'Description';
+
+			this.$shareButtonEmail.setAttribute('url', this.model.url);
+			this.$shareButtonLink.setAttribute('url', this.model.url);
 		}
 	}
 
