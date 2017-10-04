@@ -101,7 +101,6 @@ class JobPostingCardViewController extends HTMLElement{
 		this.model.hiringOrganization = new Organization(value.hiringOrganization);
 		this.model.jobLocation = new PostalAddress(value.jobLocation);
 		this._updatedEvent();
-		console.log(this.model)
 
 		if(this.connected){
 			this.$employmentType.innerText = this.model.employmentType || 'Employment Type';
