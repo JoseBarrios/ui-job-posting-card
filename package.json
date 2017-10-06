@@ -1,6 +1,6 @@
 {
   "name": "@josebarrios/ui-job-posting-card",
-  "version": "0.1.24",
+  "version": "0.1.28",
   "description": "A set of custom element for job posting",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/JoseBarrios/ui-job-posting-card#readme",
   "devDependencies": {
-    "@josebarrios/ui-job-posting": "^0.1.42",
+    "@josebarrios/ui-job-posting": "^0.1.67",
     "@josebarrios/ui-organization-card": "^0.2.8",
     "http-server": "^0.10.0",
     "mocha": "^3.4.2",
