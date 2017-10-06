@@ -86,20 +86,22 @@ class JobPostingCardViewController extends HTMLElement{
 		value.hiringOrganization = PostalAddress.assignedProperties(this.model.hiringOrganization)
 		return value;
 	}
+
 	set value(value){
 		this.model = new JobPosting(value);
 		this.model.hiringOrganization = new Organization(value.hiringOrganization);
 		this.model.jobLocation = new PostalAddress(value.jobLocation);
-		this._updatedEvent();
 
 		if(this.connected){
 			this.$employmentType.innerText = this.model.employmentType || 'Employment Type';
 			this.$title.innerText = this.model.title || 'Title';
 			this.$hiringOrganizationName.innerText = this.model.hiringOrganization.name || 'Hiring Organization';
-			this.$datePosted.innerText = this.model.datePosted || 'Date Posted';
+			this.$datePosted.innerText = this.humanizeDate(this.model.datePosted);
 			this.$jobLocation.innerText = this.model.jobLocation.addressLocality + ', '+ this.model.jobLocation.addressRegion || 'Job Location';
 			this.$description.innerText = this.model.description || 'Description';
 		}
+
+		this._updatedEvent();
 	}
 
 	get employmentType(){ return this.model.employmentType; }
@@ -149,6 +151,19 @@ class JobPostingCardViewController extends HTMLElement{
 			this.card.style.backgroundColor = "#ffffff";
 			this._unselectedEvent();
 		}
+	}
+
+	humanizeDate(date){
+		let posted = moment(date);
+		let now = moment(Date.now());
+		let datePostedInDays = now.diff(posted, 'days');
+		let result = 'Posted Today';
+		if(datePostedInDays == 1){
+			result = `Posted ${datePostedInDays} day ago`;
+		}else if(datePostedInDays > 1){
+			result = `Posted ${datePostedInDays} days ago`;
+		}
+		return result;
 	}
 
 

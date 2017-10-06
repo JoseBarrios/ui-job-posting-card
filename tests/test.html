@@ -128,7 +128,7 @@ let unselectAll = function(exception){
 }
 
 cards.forEach(card => {
-
+	card.datePosted = "2017-10-01";
 	card.addEventListener('selected', function(e){
 		unselectAll(e.target);
 	})
