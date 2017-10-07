@@ -162,7 +162,7 @@ class JobPostingCardViewController extends HTMLElement{
 	}
 
 	humanizeDate(date){
-		let posted = moment(date);
+		let posted = moment(date, 'YYYY-MM-DD');
 		let now = moment(Date.now());
 		let datePostedInDays = now.diff(posted, 'days');
 		let result = 'Posted Today';
