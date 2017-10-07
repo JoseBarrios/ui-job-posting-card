@@ -35,12 +35,7 @@ class JobPostingCardViewController extends HTMLElement{
     this.$datePosted = this.shadowRoot.querySelector('#datePosted')
     this.$jobLocation = this.shadowRoot.querySelector('#jobLocation')
     this.$description = this.shadowRoot.querySelector('#description')
-
     this.$info = this.shadowRoot.querySelector('#info')
-    this.$buttons = this.shadowRoot.querySelector('#buttons')
-
-    this.$shareButtonLink = this.shadowRoot.querySelector('#shareButtonLink')
-    this.$shareButtonEmail = this.shadowRoot.querySelector('#shareButtonEmail')
 
 
 		this.clicked = (e) => {
@@ -109,9 +104,6 @@ class JobPostingCardViewController extends HTMLElement{
 			this.$datePosted.innerText = this.humanizeDate(this.model.datePosted);
 			this.$jobLocation.innerText = this.model.jobLocation.addressLocality + ', '+ this.model.jobLocation.addressRegion || 'Job Location';
 			this.$description.innerText = this.model.description || 'Description';
-
-			this.$shareButtonEmail.setAttribute('url', this.model.url);
-			this.$shareButtonLink.setAttribute('url', this.model.url);
 		}
 
 		this._updatedEvent();
@@ -160,15 +152,11 @@ class JobPostingCardViewController extends HTMLElement{
 		//SELECTED
 		if(this.card && value === true){
 			this.card.style.backgroundColor = "#fafafa";
-			this.$info.style.display = "none";
-			this.$buttons.style.display = "inline-block";
 			this._selectedEvent();
 		}
 		//UNSELECTED
 		if(this.card && value === false){
 			this.card.style.backgroundColor = "#ffffff";
-			this.$buttons.style.display = "none";
-			this.$info.style.display = "flex";
 			this._unselectedEvent();
 		}
 	}

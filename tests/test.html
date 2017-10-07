@@ -110,7 +110,6 @@
 <script>
 let cards = document.querySelectorAll('ui-job-posting-card');
 
-
 let unselectAll = function(exception){
 	cards.forEach(card => {
 		if(card !== exception){
@@ -124,13 +123,8 @@ cards.forEach(card => {
 	card.addEventListener('selected', function(e){
 		unselectAll(e.target);
 	})
-
 })
 
-
-//card.addEventListener('updated', function(e){
-	//console.log('UPDATED:', e.detail)
-//})
 
 
 
