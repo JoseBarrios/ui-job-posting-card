@@ -28,7 +28,7 @@
     "webpack": "^3.6.0"
   },
   "dependencies": {
-    "dc-job-posting": "^1.0.0-beta",
+    "dc-job-posting": "^0.1.0",
     "dc-organization": "^0.1.0",
     "dc-postal-address": "^0.1.0"
   }
