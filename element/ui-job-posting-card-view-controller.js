@@ -8,9 +8,9 @@ class JobPostingCardViewController extends HTMLElement{
 		return ['value', 'selected'];
 	}
 
-  constructor(){
-    super();
-    const view = uiJobPostingCardView.content.cloneNode(true);
+	constructor(){
+		super();
+		const view = uiJobPostingCardView.content.cloneNode(true);
 		this.shadowRoot = this.attachShadow({mode: 'open'});
 		this.shadowRoot.appendChild(view);
 		//set variables
@@ -19,23 +19,23 @@ class JobPostingCardViewController extends HTMLElement{
 		this.model.hiringOrganization = new Organization();
 
 		//set state
-    this.selected = false;
-    this.listening = false;
-  }
+		this.selected = false;
+		this.listening = false;
+	}
 
-		///STANDARD
+	///STANDARD
 	connectedCallback() {
-    this.element = this.shadowRoot.querySelector('#element')
-    this.card = this.shadowRoot.querySelector('#card')
-    this.container = this.shadowRoot.querySelector('#container');
+		this.element = this.shadowRoot.querySelector('#element')
+		this.card = this.shadowRoot.querySelector('#card')
+		this.container = this.shadowRoot.querySelector('#container');
 
 		this.$employmentType = this.shadowRoot.querySelector('#employmentType')
 		this.$title = this.shadowRoot.querySelector('#title')
-    this.$hiringOrganizationName = this.shadowRoot.querySelector('#hiringOrganizationName')
-    this.$datePosted = this.shadowRoot.querySelector('#datePosted')
-    this.$jobLocation = this.shadowRoot.querySelector('#jobLocation')
-    this.$description = this.shadowRoot.querySelector('#description')
-    this.$info = this.shadowRoot.querySelector('#info')
+		this.$hiringOrganizationName = this.shadowRoot.querySelector('#hiringOrganizationName')
+		this.$datePosted = this.shadowRoot.querySelector('#datePosted')
+		this.$jobLocation = this.shadowRoot.querySelector('#jobLocation')
+		this.$description = this.shadowRoot.querySelector('#description')
+		this.$info = this.shadowRoot.querySelector('#info')
 
 
 		this.clicked = (e) => {
@@ -43,8 +43,6 @@ class JobPostingCardViewController extends HTMLElement{
 			e.stopPropagation();
 			this.selected = true;
 		}
-		//this.card.addEventListener('click', this.clicked)
-		//this.container.addEventListener('click', this.clicked)
 		this.element.addEventListener('click', this.clicked)
 
 		this.connected = true;
@@ -88,7 +86,6 @@ class JobPostingCardViewController extends HTMLElement{
 		let value = JobPosting.assignedProperties(this.model)
 		value.jobLocation = PostalAddress.assignedProperties(this.model.jobLocation)
 		value.hiringOrganization = PostalAddress.assignedProperties(this.model.hiringOrganization)
-
 		return value;
 	}
 
@@ -180,111 +177,53 @@ class JobPostingCardViewController extends HTMLElement{
 		console.error('ERROR: '+msg+', hidding')
 	}
 
-	get expanded(){ return this._expanded}
-	set expanded(value){
-		//if(value && this.card){
-		//this.card.style.maxHeight = "999px";
-			//this.card.style.backgroundColor = "white";
-			//this.card.style.cursor= "auto";
-			//this.centerVerticallyOnScreen();
-			//this.card.style.backgroundColor = "#eeeeee";
-			//this.card.style.backgroundColor = "#fafafa";
-
-			//this.card.style.borderColor ="#37a0e1";
-			//this.card.style.borderColor ="#e78880";
-			//this.$hiringOrganizationName.style.color = "#7f807f";
-			//this.$hiringOrganizationName.style.color = "#c64d5f";
-
-			//this.summaryContainer.style.opacity = 1;
-			//this.actionsContainer.style.opacity = 1;
-			//this.summaryContainer.style.height = "auto";
-			//this.actionsContainer.style.height = "auto";
-			//this.summaryContainer.style.display = "flex";
-			//this.actionsContainer.style.display = "flex";
-		//}
-
-
-		//CLOSE
-		//else if(value === false && this.card){
-			//this.card.style.maxHeight = "80px";
-			//this.summaryContainer.style.display = "none";
-			//this.actionsContainer.style.display = "none";
-		//}
-
-		//if(!this._expanded){ this._expandedEvent(); }
-		//this._expanded = value;
-}
-
-
-//We use this because an event relays on this function
-//and for us to be able to delete the event listener, the function
-//cannot be annonimous
-//toggle(e){
-	//e.preventDefault();
-	//e.stopPropagation();
-	//this.expanded = !this.expanded;
-//}
-
-//close(e){
-	//e.preventDefault();
-	//e.stopPropagation();
-	//this.expanded = false;
-//}
-
-//open(e){
-	//e.preventDefault();
-	//e.stopPropagation();
-	//this.expanded = true;
-//}
-
-
-_selectedEvent(){
-	this.dispatchEvent(new CustomEvent('selected', {detail: this.value, bubbles:false}));
-}
-
-_unselectedEvent(){
-	this.dispatchEvent(new CustomEvent('unselected', {detail: this.value, bubbles:false}));
-}
-
-
-_updatedEvent(){
-	this.dispatchEvent(new CustomEvent('updated', {detail: this.value, bubbles:false}));
-}
-
-_showJobPostingEvent(){
-	this.dispatchEvent(new CustomEvent('show-job-posting', {detail: this.value, bubbles:false}));
-}
-
-centerVerticallyOnScreen(){
-	const elementRect = this.card.getBoundingClientRect();
-	const absoluteElementTop = elementRect.top + window.pageYOffset;
-	let targetY = absoluteElementTop - (window.innerHeight / 4);
-	targetY = parseInt(targetY)
-
-	let steps = Math.abs(targetY - window.pageYOffset)/100;
-	let current = 0;
-	function scroll(timestamp){
-		let minRange = targetY - 50;
-		if(window.pageYOffset < minRange && current <= window.pageYOffset) {
-			let next = window.pageYOffset + steps;
-			current = next;
-			window.scrollTo(0, next);
-			window.requestAnimationFrame(scroll);
-		}
+	_selectedEvent(){
+		this.dispatchEvent(new CustomEvent('selected', {detail: this.value, bubbles:false}));
 	}
-	window.requestAnimationFrame(scroll);
-}
 
-isInViewPort(){
-	let el = this;
-	var rect = el.getBoundingClientRect();
-	let cardHeight = 80;
-	let top = rect.top >= 0;
-	let left = rect.left >=0;
-	let bottom = rect.bottom <= (window.innerHeight + cardHeight || document.documentElement.clientHeight)
-	let right = rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-	return top && left && bottom && right;
-}
+	_unselectedEvent(){
+		this.dispatchEvent(new CustomEvent('unselected', {detail: this.value, bubbles:false}));
+	}
+
+
+	_updatedEvent(){
+		this.dispatchEvent(new CustomEvent('updated', {detail: this.value, bubbles:false}));
+	}
+
+	_showJobPostingEvent(){
+		this.dispatchEvent(new CustomEvent('show-job-posting', {detail: this.value, bubbles:false}));
+	}
+
+	centerVerticallyOnScreen(){
+		const elementRect = this.card.getBoundingClientRect();
+		const absoluteElementTop = elementRect.top + window.pageYOffset;
+		let targetY = absoluteElementTop - (window.innerHeight / 4);
+		targetY = parseInt(targetY)
+
+		let steps = Math.abs(targetY - window.pageYOffset)/100;
+		let current = 0;
+		function scroll(timestamp){
+			let minRange = targetY - 50;
+			if(window.pageYOffset < minRange && current <= window.pageYOffset) {
+				let next = window.pageYOffset + steps;
+				current = next;
+				window.scrollTo(0, next);
+				window.requestAnimationFrame(scroll);
+			}
+		}
+		window.requestAnimationFrame(scroll);
+	}
+
+	isInViewPort(){
+		let el = this;
+		var rect = el.getBoundingClientRect();
+		let cardHeight = 80;
+		let top = rect.top >= 0;
+		let left = rect.left >=0;
+		let bottom = rect.bottom <= (window.innerHeight + cardHeight || document.documentElement.clientHeight)
+		let right = rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+		return top && left && bottom && right;
+	}
 }
 
 window.customElements.define('ui-job-posting-card', JobPostingCardViewController);

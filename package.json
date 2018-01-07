@@ -1,6 +1,6 @@
 {
-  "name": "@josebarrios/ui-job-posting-card",
-  "version": "0.1.34",
+  "name": "ui-job-posting-card",
+  "version": "0.1.0",
   "description": "A set of custom element for job posting",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,6 @@
   ],
   "browser": "browser.js",
   "author": "JoseBarrios",
-  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/JoseBarrios/ui-job-posting-card/issues"
   },
@@ -26,12 +25,11 @@
   "devDependencies": {
     "http-server": "^0.10.0",
     "mocha": "^3.5.3",
-    "webpack": "^3.6.0",
-    "yarn": "^0.27.5"
+    "webpack": "^3.6.0"
   },
   "dependencies": {
-    "@josebarrios/job-posting": "^0.2.10",
-    "@josebarrios/organization": "^1.1.7",
-    "@josebarrios/postal-address": "^0.1.7"
+    "dc-job-posting": "^1.0.0-beta",
+    "dc-organization": "^0.1.0",
+    "dc-postal-address": "^0.1.0"
   }
 }
