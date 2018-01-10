@@ -14,9 +14,7 @@ class JobPostingCardViewController extends HTMLElement{
 		this.shadowRoot = this.attachShadow({mode: 'open'});
 		this.shadowRoot.appendChild(view);
 		//set variables
-		this.model = new JobPosting();
-		this.model.jobLocation = new PostalAddress();
-		this.model.hiringOrganization = new Organization();
+		this.model = {};
 
 		//set state
 		this.selected = false;
@@ -36,7 +34,6 @@ class JobPostingCardViewController extends HTMLElement{
 		this.$jobLocation = this.shadowRoot.querySelector('#jobLocation')
 		this.$description = this.shadowRoot.querySelector('#description')
 		this.$info = this.shadowRoot.querySelector('#info')
-
 
 		this.clicked = (e) => {
 			e.preventDefault();
@@ -60,15 +57,17 @@ class JobPostingCardViewController extends HTMLElement{
 
 	attributeChangedCallback(attrName, oldVal, newVal) {
 		switch(attrName){
+
 			case 'value':
 				//Convert string to object, set
 				this.value = JSON.parse(newVal);
-
 				break;
+
 			case 'selected':
 				//Converts string to boolean, sets it
 				this.selected = (newVal === "true");
 				break;
+
 			default:
 				console.warn(`Attribute ${attrName} not handled`)
 		}
@@ -81,30 +80,14 @@ class JobPostingCardViewController extends HTMLElement{
 	get shadowRoot(){ return this._shadowRoot; }
 	set shadowRoot(value){ this._shadowRoot = value;}
 
-
-	get value(){
-		let value = JobPosting.assignedProperties(this.model)
-		value.jobLocation = PostalAddress.assignedProperties(this.model.jobLocation)
-		value.hiringOrganization = PostalAddress.assignedProperties(this.model.hiringOrganization)
-		return value;
-	}
-
+	get value(){ return this.model; }
 	set value(value){
-		this.model = new JobPosting(value);
-		this.model.hiringOrganization = new Organization(value.hiringOrganization);
-		this.model.jobLocation = new PostalAddress(value.jobLocation);
-
-		if(this.connected){
-			this.$employmentType.innerText = this.model.employmentType || 'Employment Type';
-			this.$title.innerText = this.model.title || 'Title';
-			this.$hiringOrganizationName.innerText = this.model.hiringOrganization.name || 'Hiring Organization';
-			this.$datePosted.innerText = this.humanizeDate(this.model.datePosted);
-			this.$jobLocation.innerText = this.model.jobLocation.addressLocality + ', '+ this.model.jobLocation.addressRegion || 'Job Location';
-			this.$description.innerText = this.model.description || 'Description';
-		}
-
-		this._updatedEvent();
+		this.model = value;
+		this._updateView();
 	}
+
+	set identifier(value) {}
+	get identifier(){ return this.model.identifier }
 
 	get employmentType(){ return this.model.employmentType; }
 	set employmentType(value){
@@ -175,6 +158,37 @@ class JobPostingCardViewController extends HTMLElement{
 	error(msg){
 		this.hidden = true;
 		console.error('ERROR: '+msg+', hidding')
+	}
+
+	_updateView(){
+		if(this.connected){
+
+			if(this.$employmentType && this.model.employmentType){
+				this.$employmentType.innerText = this.model.employmentType || 'Employment Type';
+			}
+
+			if(this.$title && this.model.title){
+				this.$title.innerText = this.model.title || 'Title';
+			}
+
+			if(this.$hiringOrganization && this.model.hiringOrganization){
+				this.$hiringOrganizationName.innerText = this.model.hiringOrganization.name || 'Hiring Organization';
+			}
+
+			if(this.$datePosted && this.model.datePosted){
+				this.$datePosted.innerText = this.humanizeDate(this.model.datePosted);
+			}
+
+			if(this.$jobLocation && this.model.jobLocation){
+				this.$jobLocation.innerText = this.model.jobLocation.addressLocality + ', '+ this.model.jobLocation.addressRegion || 'Job Location';
+			}
+
+			if(this.$description && this.model.description){
+				this.$description.innerText = this.model.description || 'Description';
+			}
+		}
+
+		this._updatedEvent();
 	}
 
 	_selectedEvent(){
